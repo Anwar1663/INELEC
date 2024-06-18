@@ -1,2 +1,2 @@
-This Repository Hosts Shated Files for Collaborative work
+This Repository Hosts Shared Files for Collaborative work
 
