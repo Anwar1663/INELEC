@@ -1,0 +1,385 @@
+\documentclass{article}
+\usepackage{graphicx, float}
+\usepackage{circuitikz}
+
+\title{CircuiTikz Summary}
+\date{Last Edit: \today}
+
+\begin{document}
+\maketitle
+
+    %--------------------------------------------------------------------------------------
+    % MonoPoles
+    %--------------------------------------------------------------------------------------
+
+
+    \section{Monopoles}
+    They Have the Type of node, Thus they use the syntax:\\
+    \centering
+        \textit{node[name]\{label\}} \\
+    \raggedright
+    \subsection{ground}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[ground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{tlground(Tail-less Ground)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[tlground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{rground(Reference Ground)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[rground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{pground(Protective Ground)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[pground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{cground(Chassis Ground)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[cground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{eground(European Ground)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[eground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{eground2(European Ground 2)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[eground2]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    
+    
+    %--------------------------------------------------------------------------------------
+    % Bipoles
+    %--------------------------------------------------------------------------------------
+    
+    
+    \newpage
+    \section{BiPoles}
+    They have this syntax:\\
+    \begin{center}
+         \textit{(x1,y1) to [name] (x2, y2)}
+    \end{center} 
+    \raggedright There are other options that can be added inside the "[" and "]",
+    you can pass more than one option, but you have to separate the options with a colon ","\\
+    \textbf{Example:} [name of component, options 1, option 2, option 3] \\
+    \centering 
+    Label: [l = name of label] \\
+    Label (on the other side): [l\_= Name of Label] \\
+    Voltage Sign: [v = Name of Voltage] \\
+    Voltage Sign (Inverted Polarity): [v<=Name of Voltage]\\
+    Changing Polarity: [invert] \\
+    Arrow: [->] OR [<-] OR [<->] \\
+    Open Circuit(Circles): [-o] OR [o-]
+
+    
+    
+    \raggedright
+    \subsection{R(american resistor)}
+    \begin{center}
+        \begin{circuitikz}
+            \draw (0,0) to [resistor] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{vR(Variable resistor)}
+    \begin{center}
+        \begin{circuitikz}
+            \draw (0,0) to [resistor] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{european resistor}
+    \begin{center}
+        \begin{circuitikz}
+            \draw (0,0) to [european resistor] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{V (DC Voltage Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [V, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{cV (Controlled Voltage Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [cV, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{sV (AC Voltage Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [sV, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{csV (Controlled Alternating Voltage Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [csV, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{battery}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [battery] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{battery1(Single Cell Battery)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [battery1] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{I (DC Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [I] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{cI (Controlled Current Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [cI] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{sI (AC Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [sI, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{csI (Controlled Alternating Current Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [csI, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{C (Capacitor)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [C] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{cC (Polarized Capacitor)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [cC] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{L (Inductor)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [L] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{vL (Variable Inductor)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [vL] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{voltmeter}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [voltmeter] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ammeter}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [ammeter] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ohmmeter}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [ohmmeter] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{fuse}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [fuse] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{afuse(asymmetric)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [afuse] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{thermocouple}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [thermocouple] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{lamp}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [lamp] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{bulb}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [bulb] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    
+    
+    %--------------------------------------------------------------------------------------
+    % DIODES
+    %--------------------------------------------------------------------------------------
+   
+   
+   
+    \newpage
+    \section{Diodes}
+    Empty Diodes End With: Do (o is empty)\\
+    Full Diodes End With: D* (full)\\
+    Stroke Diodes End with: D- \\
+    If omitted The Default is an empty Diode
+
+    \begin{center}
+    \Huge Comparison: \normalsize
+        \begin{circuitikz}[american]
+            \draw (-4,0) to [D, l= Empty] (-2,0)
+            (-1,0) to [D*, l=Full](1,0)
+            (2, 0) to [D-, l=Stroke](4,0);
+        \end{circuitikz}
+    \end{center}
+    
+    
+    
+    \subsection{Do (Empty Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [Do] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{zDo (Empty Zener Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [zDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{zzDo (Empty ZZener Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [zzDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{leDo (Empty Led)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [leDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{pDo (Empty PhotoDiode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [pDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{sDo (Empty Schottky Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [sDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{biDo (Empty Biderectional Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [biDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{tvsDo (Empty TVS Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [tvsDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+     \subsection{Tr (Triac)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [Tr] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{Ty (Thyristor)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [Ty] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{PUT (PUT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [PUT] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \newpage
+    \section{Transistors}
+    Transistors have type: node. \\
+    They follow this syntax:\\
+    \begin{center}
+        \textit{(x1,y1) node[name]{label}}
+    \end{center}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+\end{document}
