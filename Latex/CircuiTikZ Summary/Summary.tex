@@ -1,0 +1,750 @@
+\documentclass{article}
+\usepackage{graphicx, float}
+\usepackage{circuitikz}
+
+\title{CircuiTikz Cheatsheet}
+\date{Last Edit: \today}
+
+\begin{document}
+\maketitle
+
+    \section{Options}
+
+    \subsection{General}
+        \begin{center}
+            change color: \textit{color=red/blue/green...} \\
+            change fill color: \textit{fill=red/blue/green...} \\
+            change size: \textit{scale=2}\\
+            Mirror: \textit{mirror}\\
+            Invert: \textit{invert}\\
+            line thickness: \textit{thickness=2}
+        \end{center}
+    \subsection{Node-style Components}
+    They follow this syntax: 
+    
+    \#1: Component name.
+    
+    \#2: List of options seperated by a comma.
+    
+    \#3: Name of an anchor.
+    
+    \#4: Text written to the text anchor of the component.
+    
+    \#5: Curly Braces (Mandatory, even if empty).
+        \begin{center}
+            mirroring: \textit{xscale=-1}\\
+            flipping: \textit{yscale=-1}
+        \end{center}
+
+        
+
+
+    %--------------------------------------------------------------------------------------
+    % MonoPoles
+    %--------------------------------------------------------------------------------------
+
+    \newpage
+    \section{Monopoles}
+    They Have the Type of node, Thus they use the syntax:\\
+    \centering
+        \textit{node[name]\{label\}} \\
+    \raggedright
+    \subsection{ground}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[ground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{tlground(Tail-less Ground)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[tlground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{rground(Reference Ground)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[rground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{pground(Protective Ground)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[pground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{cground(Chassis Ground)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[cground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{eground(European Ground)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[eground]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    \subsection{eground2(European Ground 2)}
+    \centering \begin{circuitikz}
+        \draw (0,0) node[eground2]{};
+    \end{circuitikz} 
+    
+    \raggedright
+    
+    
+    %--------------------------------------------------------------------------------------
+    % Bipoles
+    %--------------------------------------------------------------------------------------
+    
+    
+    \newpage
+    \section{BiPoles}
+    They have this syntax:\\
+    \begin{center}
+         \textit{(x1,y1) to [name] (x2, y2)}
+    \end{center} 
+    \raggedright There are other options that can be added inside the "[" and "]",
+    you can pass more than one option, but you have to separate the options with a colon ","\\
+    \textbf{Example:} [name of component, options 1, option 2, option 3] \\
+    \centering 
+    Label: [l = name of label] \\
+    Label (on the other side): [l\_= Name of Label] \\
+    Voltage Sign: [v = Name of Voltage] \\
+    Voltage Sign (Inverted Polarity): [v<=Name of Voltage]\\
+    Changing Polarity: [invert] \\
+    Arrow: [->] OR [<-] OR [<->] \\
+    Open Circuit(Circles): [-o] OR [o-]
+
+    
+    
+    \raggedright
+    \subsection{R(american resistor)}
+    \begin{center}
+        \begin{circuitikz}
+            \draw (0,0) to [resistor] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{vR(Variable resistor)}
+    \begin{center}
+        \begin{circuitikz}
+            \draw (0,0) to [resistor] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{european resistor}
+    \begin{center}
+        \begin{circuitikz}
+            \draw (0,0) to [european resistor] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{V (DC Voltage Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [V, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{cV (Controlled Voltage Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [cV, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{sV (AC Voltage Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [sV, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{csV (Controlled Alternating Voltage Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [csV, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{battery}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [battery] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{battery1(Single Cell Battery)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [battery1] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{I (DC Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [I] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{cI (Controlled Current Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [cI] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{sI (AC Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [sI, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{csI (Controlled Alternating Current Source)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [csI, invert] (0,1.5);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{C (Capacitor)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [C] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{cC (Polarized Capacitor)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [cC] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{L (Inductor)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [L] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{vL (Variable Inductor)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [vL] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{voltmeter}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [voltmeter] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ammeter}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [ammeter] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ohmmeter}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [ohmmeter] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{nos (normal open switch)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [nos] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ncs (normal closed switch)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [ncs] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{switch(closing switch)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [switch] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{fuse}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [fuse] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{afuse(asymmetric)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [afuse] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{thermocouple}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [thermocouple] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{lamp}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [lamp] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{bulb}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [bulb] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    
+    
+    
+    %--------------------------------------------------------------------------------------
+    % DIODES
+    %--------------------------------------------------------------------------------------
+   
+   
+   
+    \newpage
+    \section{Diodes}
+    Empty Diodes End With: Do (o is empty)\\
+    Full Diodes End With: D* (full)\\
+    Stroke Diodes End with: D- \\
+    If omitted The Default is an empty Diode
+
+    \begin{center}
+    \Huge Comparison: \normalsize
+        \begin{circuitikz}[american]
+            \draw (-4,0) to [D, l= Empty] (-2,0)
+            (-1,0) to [D*, l=Full](1,0)
+            (2, 0) to [D-, l=Stroke](4,0);
+        \end{circuitikz}
+    \end{center}
+    
+    
+    
+    \subsection{Do (Empty Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [Do] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{zDo (Empty Zener Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [zDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{zzDo (Empty ZZener Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [zzDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{leDo (Empty Led)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [leDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{pDo (Empty PhotoDiode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [pDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{sDo (Empty Schottky Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [sDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{biDo (Empty Biderectional Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [biDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{tvsDo (Empty TVS Diode)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [tvsDo] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+     \subsection{Tr (Triac)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [Tr] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{Ty (Thyristor)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [Ty] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{PUT (PUT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) to [PUT] (2,0);
+        \end{circuitikz}
+    \end{center}
+    
+    
+    %--------------------------------------------------------------------------------------
+    % Transistors
+    %--------------------------------------------------------------------------------------
+    
+    
+    \newpage
+    \section{Transistors}
+    Transistors have type: node. \\
+    They follow this syntax:\\
+    \begin{center}
+        \textit{(x1,y1) node[name, options]\{label\}}
+    \end{center}
+    Options are: 
+    \begin{center}
+        nobase: remove the base
+    \end{center}
+    every N transistor has its P image
+
+    \subsection{npn(pnp)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[npn]{};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{npn(pnp), bodydiode}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[npn, bodydiode]{};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{npn(pnp), schottky base}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[npn, schottky base]{};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{npn(pnp), photo}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[npn, photo]{};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{bjtnpn(pnp), collectors=$n$, emitters=$m$}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[bjtnpn, emitters=1 ,collectors=2]{};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{n(p)mos}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[nmos]{};
+        \end{circuitikz}
+    \end{center}
+
+    
+    \subsection{n(p)mosd (Depletion)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[nmosd]{};
+        \end{circuitikz}
+    \end{center}
+
+    
+    \subsection{hemt}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[hemt]{};
+        \end{circuitikz}
+    \end{center}
+    
+    
+    %--------------------------------------------------------------------------------------
+    % Amplifiers
+    %--------------------------------------------------------------------------------------
+    
+    
+    \newpage
+    \section{Amplifiers}
+    Transistors have type: node. \\
+    They follow this syntax:\\
+    \begin{center}
+        \textit{(x1,y1) node[name, options](name of amplifier)\{label\}}\\
+        Connect to a specific port: \textit{(name of amplifier.port)}
+    \end{center}
+    
+     Names of ports are: 
+    \begin{center}
+        positive post: \textit{name.+}\\
+        negative port: \textit{name.-}\\
+        Output: \textit{name.out}\\
+        up: \textit{name.up}\\
+        down: \textit{name.down} \\
+        \textbf{for Fully differential op amps:}\\
+        Positive output: \textit{name.out +}\\
+        negative output: \textit{name.out -}\\[0.3cm]
+        
+        \begin{circuitikz}[american]
+            \draw (0,0) node[op amp](op1){}
+            (op1.-) node[left]{$negative$}
+            (op1.+) node[left]{$positive$}
+            (op1.up) to ++(0,0.5) node[above]{$up$}
+            (op1.down) to ++(0,-0.5) node[below]{$down$}
+            (op1.out) node[right]{$out$};
+        \end{circuitikz}
+    \end{center}
+    
+    Options are: 
+    \begin{center}
+        input polarity: \textit{noinv input up(down)}\\
+        output polarity: \textit{noinv output up(down)}
+    \end{center}
+
+    \subsection{op amp}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[op amp](op1){};
+        \end{circuitikz}
+    \end{center}
+    
+    
+    \subsection{fd op amp(fully differential operational amplifier)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[fd op amp](op2){};
+        \end{circuitikz}
+    \end{center}
+    
+    
+    %--------------------------------------------------------------------------------------
+    % Logic Gates
+    %--------------------------------------------------------------------------------------
+    
+    
+    \newpage
+    \section{IEEE Logic Gates}
+    Transistors have type: node. \\
+    They follow this syntax:\\
+    \begin{center}
+        \textit{(x1,y1) node[name, options](name of gate)\{label\}}\\
+        Connect to a specific port: \textit{(name of gate.port)}
+    \end{center}
+    
+    \begin{center}
+        input 1: \textit{name.in 1}\\
+        input 2: \textit{name.in 2}\\
+        Output: \textit{name.out}\\[0.3cm]
+        
+        \begin{circuitikz}[american]
+            \draw (0,0) node[ieeestd and port](gate){}
+            (gate.in 1) node[left]{input 1}
+            (gate.in 2) node[left]{input 2}
+            (gate.out) node[right]{output};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ieeestd and port(IEEE AND PORT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[ieeestd and port](gate){};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ieeestd nand port(IEEE NAND PORT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[ieeestd nand port](gate){};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ieeestd or port(IEEE OR PORT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[ieeestd or port](gate){};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ieeestd nor port(IEEE NOR PORT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[ieeestd nor port](gate){};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ieeestd xor port(IEEE XOR PORT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[ieeestd xor port](gate){};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ieeestd xnor port(IEEE XNOR PORT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[ieeestd xnor port](gate){};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ieeestd buffer port(IEEE BUFFER PORT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[ieeestd buffer port](gate){};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ieeestd not port(IEEE NOT PORT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[ieeestd not port](gate){};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{ieeestd schmitt port(IEEE SCHMITT PORT)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[ieeestd schmitt port](gate){};
+        \end{circuitikz}
+    \end{center}
+    
+    
+    %--------------------------------------------------------------------------------------
+    % Logic Gates
+    %--------------------------------------------------------------------------------------
+    
+    
+    \newpage
+    \section{Flip-flops}
+    Transistors have type: node. \\
+    They follow this syntax:\\
+    \begin{center}
+        \textit{(x1,y1) node[name, options](name of flipflop)\{label\}}\\
+        Connect to a specific port: \textit{(name of flipflop.port)}
+    \end{center}
+    
+    \begin{center}
+        pin 1: \textit{name.bpin 1}\\
+        pin 2: \textit{name.bpin 2}\\
+        pin 3: \textit{name.bpin 3}\\
+        pin 4: \textit{name.bpin 4}\\
+        pin 5: \textit{name.bpin 5}\\
+        pin 6: \textit{name.bpin 6}\\
+        up: \textit{name.bup}\\
+        down: \textit{name.bdown}
+    \end{center}
+    Other Options are:
+    \begin{center}
+        set pin width \textit{external pins width=1} \\
+        negate a pin: \textit{<node name>-N<pin number>} ex: J-N5\\
+        
+    \end{center}
+    
+    \subsection{flipflop (empty)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[flipflop](ff){};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{flipflop}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[flipflop](ff){}
+            (ff.bpin 1) to ++(-0.3,0) node[left]{pin 1} 
+            (ff.bpin 2) to ++(-0.3,0) node[left]{pin 2} 
+            (ff.bpin 3) to ++(-0.3,0) node[left]{pin 3} 
+            (ff.bpin 4) to ++(0.3,0) node[right]{pin 4} 
+            (ff.bpin 5) to ++(0.3,0) node[right]{pin 5}
+            (ff.bpin 6) to ++(0.3,0) node[right]{pin 6}
+            (ff.bup) to ++(0,+0.3) node[above]{up}
+            (ff.bdown) to ++(0,-0.3) node[below]{down};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{latch}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[latch](latch){}
+            (latch.pin 1) node[left]{name.pin 1}
+            (latch.pin 3) node[left]{name.pin 3}
+            (latch.pin 4) node[right]{name.pin 4}
+            (latch.pin 6) node[right]{name.pin 6};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{flipflop SR}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[flipflop SR](sr){}
+            (sr.pin 1) node[left]{name.pin 1}
+            (sr.pin 3) node[left]{name.pin 3}
+            (sr.pin 4) node[right]{name.pin 4}
+            (sr.pin 6) node[right]{name.pin 6};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{flipflop JK}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[flipflop JK](jk){}
+            (jk.pin 1) node[left]{name.pin 1}
+            (jk.pin 2) node[left]{name.pin 2}
+            (jk.pin 3) node[left]{name.pin 3}
+            (jk.pin 4) node[right]{name.pin 4}
+            (jk.pin 6) node[right]{name.pin 6};
+        \end{circuitikz}
+    \end{center}
+    
+    \subsection{flipflop JK, add async SR (synchronous flip-flop JK)}
+    \begin{center}
+        \begin{circuitikz}[american]
+            \draw (0,0) node[flipflop JK, add async SR](jk){}
+            (jk.pin 1) node[left]{name.pin 1}
+            (jk.pin 2) node[left]{name.pin 2}
+            (jk.pin 3) node[left]{name.pin 3}
+            (jk.pin 4) node[right]{name.pin 4}
+            (jk.pin 6) node[right]{name.pin 6}
+            (jk.up) node[above]{name.up}
+            (jk.down) node[below]{name.down};
+        \end{circuitikz}
+    \end{center}
+    
+    
+\end{document}
